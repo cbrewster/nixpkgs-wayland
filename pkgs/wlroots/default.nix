@@ -9,7 +9,7 @@ args_@{ lib
 
 let
   metadata = import ./metadata.nix;
-  ignore = [ "wlroots" "hwdata" "libdisplay-info" ];
+  ignore = [ "wlroots" "hwdata" "libdisplay-info" "fetchpatch" ];
   args = lib.filterAttrs (n: _v: (!builtins.elem n ignore)) args_;
 in
 (wlroots.override args).overrideAttrs (old: {
